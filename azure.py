@@ -1,12 +1,8 @@
-# Import necessary libraries
 import streamlit as st
 import openai
 import speech_recognition as sr
 import os
 
-
-# Set up your OpenAI API key
-import os
 
 openai.api_key = os.environ.get('OPENAI_API_KEY')
 
