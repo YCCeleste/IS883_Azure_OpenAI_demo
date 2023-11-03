@@ -47,7 +47,7 @@ if user_input:
     max_tokens=50
     )
     result_text = response.choices[0].text.strip()
-print(result_text)
+    st.write(result_text)
 
 from audiocraft.models import MusicGen
 from audiocraft.models import MultiBandDiffusion
@@ -92,19 +92,10 @@ from audiocraft.utils.notebook import display_audio
 
 output = model.generate(
     descriptions=[
-        #'80s pop track with bassy drums and synth',
-        #'90s rock song with loud guitars and heavy drums',
-        #'Progressive rock drum and bass solo',
-        #'Punk Rock song with loud drum and power guitar',
-        #'Bluesy guitar instrumental with soulful licks and a driving rhythm section',
-        #'Jazz Funk song with slap bass and powerful saxophone',
         'drum and bass beat with intense percussions',
         result_text
     ],
     progress=True, return_tokens=True
 )
-display_audio(output[0], sample_rate=32000)
-if USE_DIFFUSION_DECODER:
-    out_diffusion = mbd.tokens_to_wav(output[1])
-    display_audio(out_diffusion, sample_rate=32000)
+st.audio(output[0]['audio'], format='audio/wav')
 
