@@ -43,7 +43,7 @@ else:
 if user_input:
     response = openai.Completion.create(
     engine="text-davinci-003",
-    prompt="Translate the following negative text into positive text: user_input",
+    prompt=f"Translate the following negative text into positive text: {user_input}",
     max_tokens=50
     )
     result_text = response.choices[0].text.strip()
