@@ -39,9 +39,8 @@ else:
 if user_input:
     response = openai.Completion.create(
     engine="text-davinci-003",
-    prompt=f"Translate the following negative text into positive text: {user_input}",
+    prompt="generate a text based on what this person's {user_input}. If {user_input} has a negative implication suggest a positive statement to help and encourage them recover from the negative situation.
     max_tokens=50
     )
     result_text = response.choices[0].text.strip()
     st.write(result_text)
-
