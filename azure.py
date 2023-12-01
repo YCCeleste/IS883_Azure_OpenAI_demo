@@ -2,7 +2,7 @@ import streamlit as st
 import openai
 import speech_recognition as sr
 import os
-
+import st_audiorec
 
 openai.api_key = os.environ.get('OPENAI_API_KEY')
 
@@ -34,6 +34,10 @@ if st.button("Speak"):
 else:
     user_input = st.text_input("Or type your mood:")
 
+wav_audio_data = st_audiorec()
+
+if wav_audio_data is not None:
+    st.audio(wav_audio_data, format='audio/wav')
 
 # Send the user's query to OpenAI GPT-3
 if user_input:
