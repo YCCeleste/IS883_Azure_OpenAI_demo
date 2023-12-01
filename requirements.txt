@@ -1,5 +1,9 @@
 streamlit
-openai
+openai==0.28
 SpeechRecognition==3.8.1
 PyAudio==0.2.11
+MusicGen
+audiocraft
 
+langchain
+streamlit-audiorec
